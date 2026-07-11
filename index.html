@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iki Sushi — Funchal · Madeira</title>
+<meta name="description" content="Sushi fresco e rodízio à la carte, no coração do Funchal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#c0322f;--accent2:#cba35a;--bg:#0b0b0d;--bg2:#131317;--ink:#f2efe9;--muted:#9a948c;--line:rgba(255,255,255,.10)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden}
+h1,h2,h3{font-family:'Shippori Mincho',serif;font-weight:700;line-height:1.12;letter-spacing:.5px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+::selection{background:var(--accent);color:#fff}
+
+@keyframes up{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:none}}
+.anim{opacity:0;animation:up 1.1s cubic-bezier(.2,.7,.2,1) forwards}
+.a1{animation-delay:.15s}.a2{animation-delay:.35s}.a3{animation-delay:.55s}.a4{animation-delay:.75s}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+@keyframes clip{from{clip-path:inset(0 0 100% 0);transform:scale(1.08)}to{clip-path:inset(0 0 0 0);transform:scale(1)}}
+.clipin{animation:clip 1.3s cubic-bezier(.16,1,.3,1) .3s both}
+
+.ticker{background:#000;color:#e7ddd3;border-bottom:1px solid var(--line);overflow:hidden;position:relative;z-index:40}
+.ticker .track{display:inline-flex;white-space:nowrap;padding:10px 0;animation:tick 44s linear infinite}
+.ticker:hover .track{animation-play-state:paused}
+.ticker .it{display:inline-flex;align-items:center;font-size:13px;padding:0 26px;letter-spacing:.3px}
+.ticker .it b{color:var(--accent2);margin-right:9px;font-weight:600}
+.ticker .dot{color:var(--accent);margin:0 5px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.flag{background:var(--accent);color:#fff;text-align:center;font-size:12.5px;padding:9px;letter-spacing:.6px;position:relative;z-index:50}
+
+nav{position:fixed;inset:auto 0 auto 0;top:76px;z-index:45;transition:.4s}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;position:relative}
+.nav-medal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;overflow:hidden;border:1px solid rgba(203,163,90,.35);box-shadow:0 4px 18px -6px rgba(192,50,47,.6)}
+.nav-medal img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:620px){.nav-medal{display:none}}
+nav .brand{display:flex;align-items:center;gap:12px;color:#fff}
+nav .brand img{height:48px;width:auto;display:block}
+nav .brand .jp{font-family:'Shippori Mincho',serif;font-size:30px;color:var(--accent2);line-height:1}
+nav .brand .bn{font-family:'Shippori Mincho',serif;font-weight:700;font-size:21px;letter-spacing:1px}
+nav .right{display:flex;align-items:center;gap:20px}
+.lang{display:flex;align-items:center;gap:6px;font-size:12px;letter-spacing:1px;color:var(--muted)}
+.langbtn{background:none;border:none;color:var(--muted);cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:1px;padding:2px 2px}
+.langbtn.on{color:var(--accent2);font-weight:600}
+nav .cta{border:1px solid rgba(255,255,255,.45);color:#fff;padding:11px 24px;border-radius:2px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:none;transition:.3s;font-family:inherit}
+nav .cta:hover{background:var(--accent);border-color:var(--accent)}
+nav.solid{background:rgba(8,8,10,.92);backdrop-filter:blur(12px);top:0 !important;border-bottom:1px solid var(--line)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:60px}
+.hero .bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(11,11,13,.94),rgba(11,11,13,.55) 60%,rgba(11,11,13,.3)),url('https://commons.wikimedia.org/wiki/Special:FilePath/Salmon%20Sushi%20and%20Sashimi%20Platter%20-%20W%20Sushi.jpg?width=1400');background-size:cover;background-position:center;z-index:-2}
+.hero .grain{position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 70% 30%,rgba(200,60,60,.10),transparent 55%)}
+.hero .jpbig{position:absolute;right:2%;top:8%;font-family:'Shippori Mincho',serif;font-size:min(38vh,360px);color:rgba(255,255,255,.04);line-height:1;z-index:-1;user-select:none}
+.hero .content{max-width:560px;position:relative;z-index:3}
+.floatrev{position:absolute;right:30px;top:50%;transform:translateY(-50%);width:300px;height:440px;z-index:2;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 15%,#000 85%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 15%,#000 85%,transparent)}
+.floatrev .col{display:flex;flex-direction:column;gap:15px;animation:fdown 30s linear infinite}
+.floatrev:hover .col{animation-play-state:paused}
+@keyframes fdown{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+.rcard{background:rgba(19,19,23,.9);border:1px solid var(--line);border-radius:4px;padding:18px 20px;backdrop-filter:blur(4px)}
+.rcard .st{color:var(--accent2);letter-spacing:2px;font-size:12px}
+.rcard p{font-size:13.5px;line-height:1.5;margin:8px 0;color:#e7e2da;font-weight:300}
+.rcard .who{font-size:11.5px;color:var(--muted)}
+.rcard .who b{color:#fff;font-weight:500}
+@media(max-width:1080px){.floatrev{display:none}}
+.kicker{display:inline-flex;align-items:center;gap:12px;color:var(--accent2);text-transform:uppercase;letter-spacing:4px;font-size:12px;font-weight:600;margin-bottom:22px}
+.kicker::before{content:"";width:36px;height:1px;background:var(--accent2)}
+.hero h1{font-size:clamp(52px,9vw,112px);font-weight:800}
+.hero .tag{font-size:clamp(16px,2.2vw,21px);margin-top:22px;color:#d7d2c9;font-weight:300;max-width:520px}
+.rate{display:inline-flex;align-items:center;gap:14px;margin-top:30px;padding:12px 22px;border:1px solid var(--line);border-radius:2px;background:rgba(255,255,255,.03);font-size:14px;flex-wrap:wrap}
+.rate .st{color:var(--accent2);letter-spacing:3px}
+.rate .sep{width:1px;height:16px;background:var(--line)}
+.acts{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:16px 34px;border-radius:2px;font-weight:500;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;transition:.3s;cursor:pointer;border:none;font-family:inherit;display:inline-block}
+.btn-p{background:var(--accent);color:#fff}
+.btn-p:hover{background:#fff;color:#000;transform:translateY(-2px)}
+.btn-g{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn-g:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.scrolldown{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;writing-mode:vertical-rl;opacity:.7}
+
+.stats{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:60px 0}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat .num{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(34px,4.5vw,54px);color:#fff;line-height:1}
+.stat .num b{color:var(--accent2)}
+.stat .lbl{margin-top:10px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+section{padding:110px 0}
+.eyebrow{color:var(--accent2);font-weight:600;letter-spacing:3px;text-transform:uppercase;font-size:12px}
+.title{font-size:clamp(32px,5vw,56px);margin:16px 0 18px;font-weight:700}
+.lead{color:var(--muted);font-size:18px;max-width:620px;font-weight:300;line-height:1.7}
+
+.dishes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:56px}
+.dish{background:var(--bg2);border:1px solid var(--line);border-radius:3px;overflow:hidden;transition:transform .3s,box-shadow .3s;transform-style:preserve-3d}
+.dish:hover{box-shadow:0 30px 60px -25px rgba(0,0,0,.8);border-color:rgba(203,163,90,.4)}
+.dish .dimg{height:200px;background-size:cover;background-position:center;filter:saturate(1.05)}
+.dish .db{padding:24px 24px 30px}
+.dish h3{font-size:22px;margin-bottom:8px}
+.dish p{color:var(--muted);font-size:14.5px;font-weight:300}
+
+.menu{background:#08080a}
+.menu .cats{display:grid;grid-template-columns:1fr 1fr;gap:50px 70px;margin-top:54px}
+.menu .cat h3{font-size:24px;color:var(--accent2);margin-bottom:22px;letter-spacing:1px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.mrow{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0}
+.mrow .n{font-weight:400;font-size:16px}
+.mrow .d{color:var(--muted);font-size:13px;font-weight:300}
+.mrow .dots{flex:1;border-bottom:1px dotted rgba(255,255,255,.18);margin:0 4px;transform:translateY(-4px)}
+.mrow .p{color:var(--accent2);font-weight:500;font-family:'Shippori Mincho',serif;white-space:nowrap}
+@media(max-width:760px){.menu .cats{grid-template-columns:1fr;gap:36px}}
+
+.reviews{background:var(--bg2);border-top:1px solid var(--line)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:52px}
+.rev{background:#0b0b0d;border:1px solid var(--line);border-radius:3px;padding:32px}
+.rev .st{color:var(--accent2);letter-spacing:3px;font-size:15px}
+.rev p{margin:16px 0;font-size:16px;line-height:1.65;font-weight:300;color:#e7e2da}
+.rev .who{font-size:13px;color:var(--muted)}
+.rev .who b{color:#fff;font-weight:500}
+.rev .g{color:var(--accent2)}
+
+.show .row{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.show .sticky{position:sticky;top:120px;border-radius:3px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line)}
+.show .sticky img{width:100%;height:100%;object-fit:cover}
+.show .item{padding:52px 0;border-bottom:1px solid var(--line)}
+.show .item h3{font-size:clamp(24px,3vw,36px)}
+.show .item p{color:var(--muted);margin-top:12px;font-size:16px;font-weight:300}
+.show .item .price{color:var(--accent2);font-family:'Shippori Mincho',serif;font-size:20px;margin-top:12px;display:inline-block}
+@media(max-width:820px){.show .row{grid-template-columns:1fr;gap:26px}.show .sticky{position:relative;top:0;aspect-ratio:16/10}}
+
+.band{position:relative;text-align:center;overflow:hidden}
+.band .bg{position:absolute;inset:0;background-image:linear-gradient(rgba(8,8,10,.82),rgba(8,8,10,.88)),url('https://commons.wikimedia.org/wiki/Special:FilePath/Sushi%20plate.JPG?width=1000');background-size:cover;background-position:center;z-index:-1}
+.band h2{font-size:clamp(32px,5vw,58px)}
+.band p{color:var(--muted);margin-top:16px;font-size:18px;font-weight:300}
+
+footer{background:#000;color:var(--muted);padding:60px 0 40px;border-top:1px solid var(--line)}
+footer .top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:center}
+footer .brand img{height:66px;width:auto}
+footer .brand .txt{font-family:'Shippori Mincho',serif;color:#fff;font-size:24px}
+footer a:hover{color:var(--accent2)}
+footer .made{margin-top:30px;font-size:12px;opacity:.5;letter-spacing:.5px}
+
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.ov.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--line);border-radius:4px;max-width:440px;width:100%;padding:36px;max-height:92vh;overflow:auto}
+.modal h3{font-size:28px}
+.modal .sub{color:var(--muted);font-size:14px;margin:8px 0 22px;font-weight:300}
+.modal label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+.modal input{width:100%;padding:13px 15px;background:#0b0b0d;border:1px solid var(--line);border-radius:2px;font-size:16px;color:#fff;font-family:inherit}
+.modal input:focus{outline:none;border-color:var(--accent2)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.slot{padding:10px 0;text-align:center;border:1px solid var(--line);border-radius:2px;font-size:13px;cursor:pointer;transition:.2s;color:#cfc9c0}
+.slot:hover{border-color:var(--accent2)}
+.slot.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
+.modal .send{width:100%;margin-top:24px;background:var(--accent);color:#fff;padding:15px;border:none;border-radius:2px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:inherit}
+.modal .x{float:right;font-size:26px;color:var(--muted);cursor:pointer;background:none;border:none;line-height:1}
+.ok{text-align:center;padding:16px 0}.ok .big{font-size:48px}.ok h3{margin:10px 0}.ok p{color:var(--muted);font-weight:300}
+
+@media(max-width:820px){.stats .grid{grid-template-columns:repeat(2,1fr);gap:34px}.hero .jpbig{display:none}section{padding:74px 0}.floatrev{display:none}}
+</style>
+</head>
+<body>
+<div class="flag">✦ Versão de demonstração criada para Iki Sushi — proposta de novo site</div>
+<div class="ticker"><div class="track"><span class="it"><b>MADEIRA</b>Funchal aprova apoios à Natalidade e Família<span class="dot">◆</span></span><span class="it"><b>MADEIRA</b>Madeira atinge maior população em catorze anos: 266.130 residentes<span class="dot">◆</span></span><span class="it"><b>MADEIRA</b>Funchal aprova Programa &#x27;Táxis +75&#x27;<span class="dot">◆</span></span><span class="it"><b>MADEIRA</b>Leão-marinho avistado no Porto Recreativo de Santa Cruz surpreende<span class="dot">◆</span></span><span class="it"><b>MADEIRA</b>Turismo na Madeira mantém tendência de crescimento<span class="dot">◆</span></span><span class="it"><b>MADEIRA</b>Funchal aprova apoios à Natalidade e Família<span class="dot">◆</span></span><span class="it"><b>MADEIRA</b>Madeira atinge maior população em catorze anos: 266.130 residentes<span class="dot">◆</span></span><span class="it"><b>MADEIRA</b>Funchal aprova Programa &#x27;Táxis +75&#x27;<span class="dot">◆</span></span><span class="it"><b>MADEIRA</b>Leão-marinho avistado no Porto Recreativo de Santa Cruz surpreende<span class="dot">◆</span></span><span class="it"><b>MADEIRA</b>Turismo na Madeira mantém tendência de crescimento<span class="dot">◆</span></span></div></div>
+
+<nav id="nav"><div class="wrap">
+  <div class="brand"><img src="logo_kanji.png" alt="Iki Sushi"><span class="bn">Iki Sushi</span></div>
+  <div class="nav-medal"><img src="samurai_medalhao.gif" alt="samurai"></div>
+  <div class="right">
+    <div class="lang">
+      <button class="langbtn on" data-l="pt" onclick="setLang('pt')">PT</button><span>/</span><button class="langbtn" data-l="en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="cta" onclick="openR()"><span data-pt="Reservar" data-en="Book">Reservar</span></button>
+  </div>
+</div></nav>
+
+<header class="hero">
+  <div class="bg" id="heroBg"></div><div class="grain"></div>
+  <div class="jpbig">粋</div>
+  <div class="wrap"><div class="content">
+    <div class="kicker anim">Funchal · Madeira</div>
+    <h1 class="anim a1">Iki Sushi</h1>
+    <p class="tag anim a2"><span data-pt="Sushi fresco e rodízio à la carte, no coração do Funchal." data-en="Fresh sushi and à la carte all-you-can-eat, in the heart of Funchal.">Sushi fresco e rodízio à la carte, no coração do Funchal.</span></p>
+    <div class="rate anim a3"><span class="st">★★★★☆</span><strong>4,0</strong><span style="color:#9a948c"><span data-pt="no Google" data-en="on Google">no Google</span></span><span class="sep"></span><span style="color:#9a948c">2.700 <span data-pt="no Instagram" data-en="on Instagram">no Instagram</span></span></div>
+    <div class="acts anim a4">
+      <button class="btn btn-p" onclick="openR()"><span data-pt="Reservar mesa" data-en="Book a table">Reservar mesa</span></button>
+      <a class="btn btn-g" href="https://www.google.com/maps/search/?api=1&query=Iki+Sushi+Funchal+Rua+5+de+Outubro" target="_blank"><span data-pt="Como chegar" data-en="Get directions">Como chegar</span></a>
+    </div>
+  </div></div>
+  <div class="floatrev"><div class="col"><div class="rcard"><div class="st">★★★★★</div><p>“<span data-pt="Sushi super fresco, variedade premium e qualidade acima da média." data-en="Super fresh sushi, premium variety and above-average quality.">Sushi super fresco, variedade premium e qualidade acima da média.</span>”</p>
+              <div class="who"><b>Erica S.</b> · Google</div></div><div class="rcard"><div class="st">★★★★★</div><p>“<span data-pt="Pessoal super atencioso, adorei! Novo sushi no Funchal a não perder." data-en="Super attentive staff, loved it! A new sushi spot in Funchal not to miss.">Pessoal super atencioso, adorei! Novo sushi no Funchal a não perder.</span>”</p>
+              <div class="who"><b>Francis M.</b> · Google</div></div><div class="rcard"><div class="st">★★★★★</div><p>“<span data-pt="Óptimo para ir em família. Vale muito a pena." data-en="Great for a family outing. Totally worth it.">Óptimo para ir em família. Vale muito a pena.</span>”</p>
+              <div class="who"><b>Marta R.</b> · Google</div></div><div class="rcard"><div class="st">★★★★★</div><p>“<span data-pt="All you can eat com qualidade a sério — voltarei de certeza." data-en="All you can eat with real quality — I&#x27;ll definitely be back.">All you can eat com qualidade a sério — voltarei de certeza.</span>”</p>
+              <div class="who"><b>Bruno C.</b> · Google</div></div><div class="rcard"><div class="st">★★★★★</div><p>“<span data-pt="Sushi super fresco, variedade premium e qualidade acima da média." data-en="Super fresh sushi, premium variety and above-average quality.">Sushi super fresco, variedade premium e qualidade acima da média.</span>”</p>
+              <div class="who"><b>Erica S.</b> · Google</div></div><div class="rcard"><div class="st">★★★★★</div><p>“<span data-pt="Pessoal super atencioso, adorei! Novo sushi no Funchal a não perder." data-en="Super attentive staff, loved it! A new sushi spot in Funchal not to miss.">Pessoal super atencioso, adorei! Novo sushi no Funchal a não perder.</span>”</p>
+              <div class="who"><b>Francis M.</b> · Google</div></div><div class="rcard"><div class="st">★★★★★</div><p>“<span data-pt="Óptimo para ir em família. Vale muito a pena." data-en="Great for a family outing. Totally worth it.">Óptimo para ir em família. Vale muito a pena.</span>”</p>
+              <div class="who"><b>Marta R.</b> · Google</div></div><div class="rcard"><div class="st">★★★★★</div><p>“<span data-pt="All you can eat com qualidade a sério — voltarei de certeza." data-en="All you can eat with real quality — I&#x27;ll definitely be back.">All you can eat com qualidade a sério — voltarei de certeza.</span>”</p>
+              <div class="who"><b>Bruno C.</b> · Google</div></div></div></div>
+  <div class="scrolldown">scroll</div>
+</header>
+
+<div class="stats"><div class="wrap"><div class="grid">
+  <div class="stat reveal"><div class="num" data-count="4,0" data-dec="1">0</div><div class="lbl"><span data-pt="Nota no Google" data-en="Google rating">Nota no Google</span></div></div>
+  <div class="stat reveal d1"><div class="num" data-count="2700">0</div><div class="lbl"><span data-pt="Seguidores" data-en="Followers">Seguidores</span></div></div>
+  <div class="stat reveal d2"><div class="num" data-count="40">0</div><div class="lbl"><span data-pt="Especialidades" data-en="Specialties">Especialidades</span></div></div>
+  <div class="stat reveal d3"><div class="num"><b>粋</b></div><div class="lbl"><span data-pt="Autêntico" data-en="Authentic">Autêntico</span></div></div>
+</div></div></div>
+
+<section><div class="wrap">
+  <div class="eyebrow reveal"><span data-pt="Especialidades" data-en="Specialties">Especialidades</span></div>
+  <h2 class="title reveal d1"><span data-pt="A arte do sushi, peça a peça" data-en="The art of sushi, piece by piece">A arte do sushi, peça a peça</span></h2>
+  <p class="lead reveal d2"><span data-pt="Peixe fresco selecionado todos os dias, arroz no ponto certo e a mão de quem respeita a tradição japonesa. Rodízio à la carte para provar tudo, sem pressa, no coração do Funchal." data-en="Fresh fish selected every day, perfectly seasoned rice and the hand of those who respect Japanese tradition. À la carte all-you-can-eat to taste it all, unhurried, in the heart of Funchal.">Peixe fresco selecionado todos os dias, arroz no ponto certo e a mão de quem respeita a tradição japonesa. Rodízio à la carte para provar tudo, sem pressa, no coração do Funchal.</span></p>
+  <div class="dishes"><div class="dish reveal d0"><div class="dimg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Nigiri%20Sushi%20(25966163204).jpg?width=600')"></div>
+              <div class="db"><h3><span data-pt="Sushi &amp; Sashimi" data-en="Sushi &amp; Sashimi">Sushi &amp; Sashimi</span></h3><p><span data-pt="Cortes frescos, apresentação impecável." data-en="Fresh cuts, impeccable presentation.">Cortes frescos, apresentação impecável.</span></p></div></div><div class="dish reveal d1"><div class="dimg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Nigiri%20Sushi%20(26478725732).jpg?width=600')"></div>
+              <div class="db"><h3><span data-pt="Nigiri" data-en="Nigiri">Nigiri</span></h3><p><span data-pt="O clássico: peixe sobre arroz, equilíbrio puro." data-en="The classic: fish over rice, pure balance.">O clássico: peixe sobre arroz, equilíbrio puro.</span></p></div></div><div class="dish reveal d2"><div class="dimg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Unagi%20Nigiri%20Sushi%20-%20Suzuran%20Japan%20Foods%20Trading.jpg?width=600')"></div>
+              <div class="db"><h3><span data-pt="Unagi" data-en="Unagi">Unagi</span></h3><p><span data-pt="Enguia grelhada, intensa e elegante." data-en="Grilled eel, intense and elegant.">Enguia grelhada, intensa e elegante.</span></p></div></div><div class="dish reveal d3"><div class="dimg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tako%20nigiri.jpg?width=600')"></div>
+              <div class="db"><h3><span data-pt="Tako" data-en="Tako">Tako</span></h3><p><span data-pt="Polvo, textura e sabor do mar." data-en="Octopus, texture and taste of the sea.">Polvo, textura e sabor do mar.</span></p></div></div></div>
+</div></section>
+
+<section class="menu"><div class="wrap">
+  <div class="eyebrow reveal">Menu</div>
+  <h2 class="title reveal d1"><span data-pt="O nosso menu" data-en="Our menu">O nosso menu</span></h2>
+  <div class="cats"><div class="cat reveal"><h3><span data-pt="Entradas" data-en="Starters">Entradas</span></h3><div class="mrow"><span class="n"><span data-pt="Edamame" data-en="Edamame">Edamame</span></span><span class="dots"></span><span class="p">€4,00</span></div><div class="mrow"><span class="n"><span data-pt="Gyoza (5 un.)" data-en="Gyoza (5 un.)">Gyoza (5 un.)</span> <span class="d"><span data-pt="com molho ponzu" data-en="with ponzu sauce">com molho ponzu</span></span></span><span class="dots"></span><span class="p">€7,50</span></div><div class="mrow"><span class="n"><span data-pt="Crocante de salmão (2 un.)" data-en="Salmon crunch (2 pcs)">Crocante de salmão (2 un.)</span></span><span class="dots"></span><span class="p">€8,00</span></div><div class="mrow"><span class="n"><span data-pt="Usuzukuri com jalapeño" data-en="Usuzukuri with jalapeño">Usuzukuri com jalapeño</span></span><span class="dots"></span><span class="p">€12,00</span></div></div><div class="cat reveal"><h3><span data-pt="Nigiri &amp; Sashimi" data-en="Nigiri &amp; Sashimi">Nigiri &amp; Sashimi</span></h3><div class="mrow"><span class="n"><span data-pt="Nigiri de salmão (2 un.)" data-en="Salmon nigiri (2 pcs)">Nigiri de salmão (2 un.)</span></span><span class="dots"></span><span class="p">€5,50</span></div><div class="mrow"><span class="n"><span data-pt="Nigiri de atum (2 un.)" data-en="Tuna nigiri (2 pcs)">Nigiri de atum (2 un.)</span></span><span class="dots"></span><span class="p">€6,50</span></div><div class="mrow"><span class="n"><span data-pt="Unagi / enguia (2 un.)" data-en="Unagi / eel (2 pcs)">Unagi / enguia (2 un.)</span></span><span class="dots"></span><span class="p">€7,50</span></div><div class="mrow"><span class="n"><span data-pt="Sashimi mix (9 un.)" data-en="Sashimi mix (9 pcs)">Sashimi mix (9 un.)</span></span><span class="dots"></span><span class="p">€16,00</span></div></div><div class="cat reveal"><h3><span data-pt="Especiais &amp; Rolls" data-en="Specials &amp; Rolls">Especiais &amp; Rolls</span></h3><div class="mrow"><span class="n"><span data-pt="Uramaki spicy tuna (8 un.)" data-en="Spicy tuna uramaki (8 pcs)">Uramaki spicy tuna (8 un.)</span></span><span class="dots"></span><span class="p">€11,00</span></div><div class="mrow"><span class="n"><span data-pt="Temaki de salmão" data-en="Salmon temaki">Temaki de salmão</span></span><span class="dots"></span><span class="p">€8,00</span></div><div class="mrow"><span class="n"><span data-pt="Vieira trufada" data-en="Truffle scallop">Vieira trufada</span></span><span class="dots"></span><span class="p">€14,00</span></div><div class="mrow"><span class="n"><span data-pt="Rodízio à la carte" data-en="À la carte all-you-can-eat">Rodízio à la carte</span> <span class="d"><span data-pt="all you can eat" data-en="all you can eat">all you can eat</span></span></span><span class="dots"></span><span class="p">€24,90</span></div></div><div class="cat reveal"><h3><span data-pt="Sobremesas &amp; Bebidas" data-en="Desserts &amp; Drinks">Sobremesas &amp; Bebidas</span></h3><div class="mrow"><span class="n"><span data-pt="Mochi (3 un.)" data-en="Mochi (3 un.)">Mochi (3 un.)</span></span><span class="dots"></span><span class="p">€5,00</span></div><div class="mrow"><span class="n"><span data-pt="Gelado de matchá" data-en="Matcha ice cream">Gelado de matchá</span></span><span class="dots"></span><span class="p">€4,50</span></div><div class="mrow"><span class="n"><span data-pt="Sangria de maracujá (copo)" data-en="Passion fruit sangria (glass)">Sangria de maracujá (copo)</span></span><span class="dots"></span><span class="p">€4,00</span></div><div class="mrow"><span class="n"><span data-pt="Sake / Chá verde" data-en="Sake / Green tea">Sake / Chá verde</span></span><span class="dots"></span><span class="p">€3,50</span></div></div></div>
+</div></section>
+
+<section class="show"><div class="wrap">
+  <div class="eyebrow reveal"><span data-pt="Assinatura" data-en="Signature">Assinatura</span></div>
+  <h2 class="title reveal d1"><span data-pt="Os pratos que criam fila" data-en="The dishes worth the queue">Os pratos que criam fila</span></h2>
+  <div class="row" style="margin-top:42px">
+    <div class="sticky reveal clipin"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sushi%20plate.JPG?width=1000" alt="prato"></div>
+    <div><div class="item reveal"><h3><span data-pt="Rodízio à la carte" data-en="À la carte all-you-can-eat">Rodízio à la carte</span></h3><p><span data-pt="Prove tudo, sem pressa — a experiência completa Iki." data-en="Taste it all, unhurried — the full Iki experience.">Prove tudo, sem pressa — a experiência completa Iki.</span></p>
+              <span class="price">€24,90</span></div><div class="item reveal"><h3><span data-pt="Sashimi mix" data-en="Sashimi mix">Sashimi mix</span></h3><p><span data-pt="Os melhores cortes do dia, frescura absoluta." data-en="The best cuts of the day, absolute freshness.">Os melhores cortes do dia, frescura absoluta.</span></p>
+              <span class="price">€16</span></div><div class="item reveal"><h3><span data-pt="Uramaki spicy tuna" data-en="Spicy tuna uramaki">Uramaki spicy tuna</span></h3><p><span data-pt="Intensidade e crocância em cada peça." data-en="Intensity and crunch in every piece.">Intensidade e crocância em cada peça.</span></p>
+              <span class="price">€11</span></div></div>
+  </div>
+</div></section>
+
+<section class="reviews"><div class="wrap">
+  <div class="eyebrow reveal"><span data-pt="Opiniões" data-en="Reviews">Opiniões</span></div>
+  <h2 class="title reveal d1"><span data-pt="O que dizem os clientes" data-en="What our guests say">O que dizem os clientes</span></h2>
+  <p class="lead reveal d2"><span data-pt="Avaliação de" data-en="Rated">Avaliação de</span> <strong style="color:#fff">4,0 ★</strong> <span data-pt="no Google — e a subir." data-en="on Google — and climbing.">no Google — e a subir.</span></p>
+  <div class="rev-grid"><div class="rev reveal d0"><div class="st">★★★★★</div><p>“<span data-pt="Sushi super fresco, variedade premium e qualidade acima da média." data-en="Super fresh sushi, premium variety and above-average quality.">Sushi super fresco, variedade premium e qualidade acima da média.</span>”</p>
+              <div class="who"><b>Erica S.</b> · <span class="g">Google</span></div></div><div class="rev reveal d1"><div class="st">★★★★★</div><p>“<span data-pt="Pessoal super atencioso, adorei! Novo sushi no Funchal a não perder." data-en="Super attentive staff, loved it! A new sushi spot in Funchal not to miss.">Pessoal super atencioso, adorei! Novo sushi no Funchal a não perder.</span>”</p>
+              <div class="who"><b>Francis M.</b> · <span class="g">Google</span></div></div><div class="rev reveal d2"><div class="st">★★★★★</div><p>“<span data-pt="Óptimo para ir em família. Vale muito a pena." data-en="Great for a family outing. Totally worth it.">Óptimo para ir em família. Vale muito a pena.</span>”</p>
+              <div class="who"><b>Marta R.</b> · <span class="g">Google</span></div></div><div class="rev reveal d3"><div class="st">★★★★★</div><p>“<span data-pt="All you can eat com qualidade a sério — voltarei de certeza." data-en="All you can eat with real quality — I&#x27;ll definitely be back.">All you can eat com qualidade a sério — voltarei de certeza.</span>”</p>
+              <div class="who"><b>Bruno C.</b> · <span class="g">Google</span></div></div></div>
+</div></section>
+
+<section class="band">
+  <div class="bg"></div>
+  <div class="wrap">
+    <h2 class="reveal"><span data-pt="Reserve a sua experiência" data-en="Reserve your experience">Reserve a sua experiência</span></h2>
+    <p class="reveal d1"><span data-pt="Ao fim de semana as mesas esgotam — garanta já o seu lugar." data-en="Tables sell out on weekends — secure your spot now.">Ao fim de semana as mesas esgotam — garanta já o seu lugar.</span></p>
+    <button class="btn btn-p reveal d2" style="margin-top:28px" onclick="openR()"><span data-pt="Reservar mesa" data-en="Book a table">Reservar mesa</span></button>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div class="top">
+    <div class="brand"><img src="logo_iki.png" alt="Iki Sushi"></div>
+    <div style="font-size:14px;font-weight:300;line-height:1.8;text-align:right">
+      Rua 5 de Outubro 89B, 9000-216 Funchal<br>
+      <a href="tel:291108575">291 108 575</a> · 12:00–15:00 · 18:30–23:00
+    </div>
+  </div>
+  <div class="made">Site de demonstração · desenhado por [Seu Nome / Pegada da Ilha]</div>
+</div></footer>
+
+<div class="ov" id="ov"><div class="modal">
+  <div id="form">
+    <button class="x" onclick="closeR()">×</button>
+    <h3><span data-pt="Reservar mesa" data-en="Book a table">Reservar mesa</span></h3>
+    <p class="sub"><span data-pt="Em Iki Sushi · escolha dia, hora e deixe o seu contacto." data-en="At Iki Sushi · choose a date, time and leave your contact.">Em Iki Sushi · escolha dia, hora e deixe o seu contacto.</span></p>
+    <label><span data-pt="Dia" data-en="Date">Dia</span></label><input type="date" id="rdate">
+    <label><span data-pt="Horário" data-en="Time">Horário</span></label>
+    <div class="slots" id="slots">
+      <div class="slot">12:00</div><div class="slot">13:00</div><div class="slot">14:00</div><div class="slot">18:30</div>
+      <div class="slot">19:30</div><div class="slot">20:30</div><div class="slot">21:30</div><div class="slot">22:00</div>
+    </div>
+    <label><span data-pt="Email ou telemóvel" data-en="Email or phone">Email ou telemóvel</span></label>
+    <input type="text" id="rcontact" data-ph-pt="o seu contacto" data-ph-en="your contact" placeholder="o seu contacto">
+    <button class="send" onclick="sendR()"><span data-pt="Confirmar pedido" data-en="Confirm request">Confirmar pedido</span></button>
+  </div>
+  <div class="ok" id="ok" style="display:none">
+    <div class="big">✅</div><h3><span data-pt="Pedido enviado!" data-en="Request sent!">Pedido enviado!</span></h3>
+    <p id="okmsg"></p>
+    <button class="send" style="margin-top:20px" onclick="closeR()"><span data-pt="Fechar" data-en="Close">Fechar</span></button>
+  </div>
+</div></div>
+
+<script>
+window.__lang='pt';
+function setLang(l){window.__lang=l;document.documentElement.lang=l;
+  document.querySelectorAll('[data-pt]').forEach(e=>{e.textContent=(l==='en'?e.dataset.en:e.dataset.pt)});
+  const c=document.getElementById('rcontact');if(c)c.placeholder=(l==='en'?c.dataset.phEn:c.dataset.phPt);
+  document.querySelectorAll('.langbtn').forEach(x=>x.classList.toggle('on',x.dataset.l===l));}
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));
+const hb=document.getElementById('heroBg');
+addEventListener('scroll',()=>{if(hb)hb.style.transform='translateY('+(scrollY*0.25)+'px)'},{passive:true});
+const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target,end=parseFloat(el.dataset.count),dec=el.dataset.dec?1:0;let t0=null;const dur=1500;
+  const step=(t)=>{if(!t0)t0=t;const p=Math.min((t-t0)/dur,1);const v=end*(0.5-Math.cos(Math.PI*p)/2);el.textContent=dec?v.toFixed(1).replace('.',','):Math.round(v).toLocaleString('pt-PT');if(p<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step);cio.unobserve(el)}})},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+document.querySelectorAll('.dish').forEach(c=>{
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform='perspective(800px) rotateX('+(-y*7)+'deg) rotateY('+(x*9)+'deg) translateY(-6px)'});
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+});
+const ov=document.getElementById('ov');
+function openR(){ov.classList.add('open');document.getElementById('rdate').min=new Date().toISOString().split('T')[0]}
+function closeR(){ov.classList.remove('open');document.getElementById('form').style.display='';document.getElementById('ok').style.display='none'}
+ov.addEventListener('click',e=>{if(e.target===ov)closeR()});
+let slot=null;
+document.querySelectorAll('#slots .slot').forEach(s=>s.addEventListener('click',()=>{document.querySelectorAll('#slots .slot').forEach(x=>x.classList.remove('sel'));s.classList.add('sel');slot=s.textContent}));
+function sendR(){const d=document.getElementById('rdate').value,c=document.getElementById('rcontact').value;
+  if(!d||!slot||!c){alert(window.__lang==='en'?'Please choose a date, time and leave your contact.':'Escolha dia, horário e deixe o seu contacto.');return}
+  document.getElementById('form').style.display='none';document.getElementById('ok').style.display='';
+  document.getElementById('okmsg').textContent=window.__lang==='en'
+    ?('Reservation for '+d+' at '+slot+'. We will contact you at '+c+' to confirm.')
+    :('Reserva para '+d+' às '+slot+'. Entraremos em contacto por '+c+' para confirmar.');
+}
+</script>
+</body>
+</html>
