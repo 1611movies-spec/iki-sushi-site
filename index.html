@@ -39,7 +39,17 @@ nav{position:fixed;inset:auto 0 auto 0;top:76px;z-index:45;transition:.4s}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;position:relative}
 .nav-medal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;overflow:hidden;border:1px solid rgba(203,163,90,.35);box-shadow:0 4px 18px -6px rgba(192,50,47,.6)}
 .nav-medal img{width:100%;height:100%;object-fit:cover;display:block}
-@media(max-width:620px){.nav-medal{display:none}}
+@media(max-width:680px){
+  .nav-medal{display:none}
+  nav .brand .bn{display:none}
+  nav .brand img{height:40px}
+  nav .right{gap:10px}
+  .lang{font-size:11px;letter-spacing:.5px}
+  nav .cta{padding:9px 15px;font-size:11px;letter-spacing:1px}
+  nav .wrap{padding:0 18px}
+  .flag{font-size:11px;padding:7px 12px}
+  .ticker .it{font-size:12px;padding:0 18px}
+}
 nav .brand{display:flex;align-items:center;gap:12px;color:#fff}
 nav .brand img{height:48px;width:auto;display:block}
 nav .brand .jp{font-family:'Shippori Mincho',serif;font-size:30px;color:var(--accent2);line-height:1}
